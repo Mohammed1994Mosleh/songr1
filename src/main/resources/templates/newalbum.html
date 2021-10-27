@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+
+</head>
+
+<body>
+
+
+    <div >
+        <h1>Add New Song</h1>
+
+        <form action="#" th:action="@{/addsong}" method="post">
+            <input type="hidden" field="*{id}" name="id" th:value="${album.id}" />
+
+            <p>Song title: <input type="text" field="*{title}" name="title"  /></p>
+
+            <p>Song length: <input type="number" field="*{length}" name="length"  /></p>
+
+         Track number: <input type="number" min="1" field="*{trackNumber}" name="trackNumber"  /></p>
+
+            <p>Submit <input type="submit" value="Submit" /></p>
+
+        </form>
+    </div>
+
+    <div >
+        <p>Album title :<span th:text="${album.title}"></span></p>
+        <p>Artist Name :<span th:text="${album.artist}"></span></p>
+        <p>Number of songs :<span th:text="${album.count}"></span></p>
+        <p>Total length :<span th:text="${album.length}"></span></p>
+        <img th:src="${album.image}" />
+    </div>
+    <div class="songsHolder">
+        <div th:each="song : ${songs}" >
+            <p>Song title :<span th:text="${song.title}"></span></p>
+            <p>Song length :<span th:text="${song.length}"></span></p>
+            <p>Track number :<span th:text="${song.trackNumber}"></span></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

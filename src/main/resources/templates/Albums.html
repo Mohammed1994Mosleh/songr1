@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+   <form action="/AddAlbum"   method="post">
+     <p>hello from post mapping</p>
+       <label for="title">Add Title</label>
+       <input type="text" id="title" name="title" >
+       <label for="artist">Add Artist Name</label>
+       <input type="text" id="artist" name="artist" >
+       <label for="image">Add Image Url</label>
+       <input type="text" id="image" name="image" >
+       <label for="count">Add Image Url</label>
+       <input type="number" id="count" name="count"  >
+       <label for="length">Add Image Url</label>
+       <input type="number" id="length" name="length">
+       <input type="submit">
+   </form>
+   <div th:each="album :${albums}">
+
+       <h2 th:text="${album.title}"></h2>
+       <p th:text="${album.artist}"></p>
+      <p th:text="${album.count}"></p>
+       <p th:text="${album.length}"></p>
+       <img th:src="${album.image}">
+
+   </div>
+
+</body>
+</html>
