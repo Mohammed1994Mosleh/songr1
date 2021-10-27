@@ -1,10 +1,8 @@
 package com.example.songr1;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 public class Album {
@@ -16,12 +14,14 @@ public class Album {
     private  String image;
     private   int count;
     private  int length;
-
+    @OneToMany(mappedBy = "songAlbum")
+    ArrayList <Song> albumSong=new ArrayList<>();
 
 
     public Album(){
 
     }
+
 
     public Album(String title, String artist, String image, int count, int length) {
         this.title = title;
@@ -35,43 +35,42 @@ public class Album {
         return title;
     }
 
-    public String getArtist() {
-        return artist;
-    }
-
-    public String getImageUrl() {
-        return image;
-    }
-
-    public int getSongCount() {
-        return count;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getArtist() {
+        return artist;
     }
 
     public void setArtist(String artist) {
         this.artist = artist;
     }
 
-    public void setImageUrl(String image) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public void setSongCount(int count) {
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
         this.count = count;
+    }
+
+    public int getLength() {
+        return length;
     }
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    public boolean getSongCount() {
     }
 }

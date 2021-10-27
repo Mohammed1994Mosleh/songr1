@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 
 @Controller
-public class Songrcontroller {
+public class Albumcontroller {
     @Autowired
     AlbumRepo albumRepo;
 
